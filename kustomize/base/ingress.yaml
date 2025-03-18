@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+#  annotations:
+#    cert-manager.io/cluster-issuer: acme-example
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: example.10-22-37-95.sslip.io # needs sha
+    http:
+      paths:
+      - backend:
+          service:
+            name: service
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
+  tls: 
+  - hosts:
+    - example.10-22-37-95.sslip.io
+    # - "*.example.10-22-37-95.sslip.io" # wildcards, probably
+    secretName: ingress-tls

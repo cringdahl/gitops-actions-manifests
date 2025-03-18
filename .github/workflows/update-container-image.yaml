@@ -1,0 +1,21 @@
+name: Update Manifest with Container Image
+
+on:
+  repository_dispatch:
+    types: [update-container-image]
+
+jobs:
+  update-manifest-create-pr:
+    runs-on: ubuntu-latest
+    # runs-on: internal-runner
+
+    steps:
+    - uses: cringdahl/update-manifest-create-pr@v1
+      with:
+        appname: ${{ github.event.client_payload.appname }}
+        actor: ${{ github.event.client_payload.actor }}
+        head_pr: ${{ github.event.client_payload.head_pr }}
+        message: ${{ github.event.client_payload.message }}
+        version: ${{ github.event.client_payload.version }}
+        image: ${{ github.event.client_payload.image }}
+        env_target: ${{ github.event.client_payload.env_target }}

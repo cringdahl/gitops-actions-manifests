@@ -1,0 +1,19 @@
+namespace: example-app-pr-56
+nameSuffix: -pr-56-178c545
+resources:
+- ./../../base
+images:
+- name: app-image
+  newName: harbor.10-22-37-98.sslip.io/example/app
+  newTag: pr-56-178c545
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app.kubernetes.io/instance: example-app-pr-56-178c545
+patches:
+- path: ingress-patch.yaml
+  target:
+    group: networking.k8s.io
+    kind: Ingress
+    name: ingress
+    version: v1

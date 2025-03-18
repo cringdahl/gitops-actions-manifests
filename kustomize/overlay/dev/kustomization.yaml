@@ -4,7 +4,8 @@ resources:
 - ./../../base
 images:
 - name: app-image
-  newName: harbor.10-22-37-98.sslip.io/example/app
+  #newName: harbor.10-22-37-98.sslip.io/example/app
+  newName: ghcr.io/cringdahl/example-app
   newTag: pr-56-178c545
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization

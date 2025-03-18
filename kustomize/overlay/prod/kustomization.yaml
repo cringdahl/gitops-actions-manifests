@@ -3,7 +3,7 @@ resources:
 - ./../../base
 images:
 - name: app-image
-  newName: harbor.10-22-37-98.sslip.io/example/app
+  newName: ghcr.io/cringdahl/example-app
   newTag: 2.6.2
 commonLabels:
   app.kubernetes.io/instance: example-app-prod

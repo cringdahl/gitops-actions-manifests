@@ -12,12 +12,12 @@ spec:
       github:
         owner: cringdahl
         repo: gitops-actions-manifests
-        tokenRef:
-          # argocd repos are secrets with user/pass
-          # password is the token
-          # we only know secretname after creating the repo in argocd
-          secretName: repo-1447391362
-          key: password
+        # tokenRef:
+        #   # argocd repos are secrets with user/pass
+        #   # password is the token
+        #   # we only know secretname after creating the repo in argocd
+        #   secretName: repo-1447391362
+        #   key: password
         labels:
         - application-automation
   template:
@@ -31,7 +31,7 @@ spec:
         targetRevision: '{{.head_sha}}'
       project: example-app
       destination:
-        name: target
+        name: in-cluster
         namespace: 'example-app-{{.branch}}'
       syncPolicy:
         automated:

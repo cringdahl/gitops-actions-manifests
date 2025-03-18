@@ -11,7 +11,7 @@ spec:
     targetRevision: main
   project: example-app
   destination:
-    name: target
+    name: in-cluster
     namespace: example-app-prod
   syncPolicy:
     automated:

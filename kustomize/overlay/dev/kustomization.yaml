@@ -1,15 +1,15 @@
-namespace: example-app-pr-56
-nameSuffix: -pr-56-178c545
+namespace: example-app-pr-1
+nameSuffix: -pr-1-e719437
 resources:
 - ./../../base
 images:
 - name: app-image
-  newName: harbor.10-22-37-98.sslip.io/example/app
-  newTag: pr-56-178c545
+  newName: ghcr.io/cringdahl/example-app
+  newTag: pr-1-e719437
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 commonLabels:
-  app.kubernetes.io/instance: example-app-pr-56-178c545
+  app.kubernetes.io/instance: example-app-pr-1-e719437
 patches:
 - path: ingress-patch.yaml
   target:

@@ -42,8 +42,8 @@ spec:
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       schedulerName: default-scheduler
-      imagePullSecrets: 
-        - name: ghcrcred # must be in target cluster app namespace, no exceptions
+      # imagePullSecrets:
+      #   - name: ghcrcred # must be in target cluster app namespace, no exceptions
   strategy:
     type: RollingUpdate
     rollingUpdate:

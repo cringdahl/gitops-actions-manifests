@@ -5,7 +5,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-#  - sealedsecret.yaml
+#  - sealedsecret.yaml # will also need to uncomment ghcrcred lines
 commonLabels:
   app.kubernetes.io/component: app
   app.kubernetes.io/name: example-app

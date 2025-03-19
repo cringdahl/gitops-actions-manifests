@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/rules/0/host
-  value: example-app-pr-56.example.10-22-37-95.sslip.io
+  value: example-app-pr-56.example.127-0-0-1.sslip.io
 - op: replace
   path: /spec/tls/0/hosts/0
-  value: example-app-pr-56.example.10-22-37-95.sslip.io
+  value: example-app-pr-56.example.127-0-0-1.sslip.io

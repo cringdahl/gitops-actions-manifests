@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: example.10-22-37-95.sslip.io # needs sha
+  - host: example.127-0-0-1.sslip.io # needs sha
     http:
       paths:
       - backend:
@@ -19,6 +19,6 @@ spec:
         pathType: Prefix
   tls: 
   - hosts:
-    - example.10-22-37-95.sslip.io
-    # - "*.example.10-22-37-95.sslip.io" # wildcards, probably
+    - example.127-0-0-1.sslip.io
+    # - "*.example.127-0-0-1.sslip.io" # wildcards, probably
     secretName: ingress-tls

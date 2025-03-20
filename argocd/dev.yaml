@@ -31,7 +31,7 @@ spec:
         targetRevision: '{{.head_sha}}'
       project: example-app
       destination:
-        name: in-cluster
+        name: app2
         namespace: 'example-app-{{.branch}}'
       syncPolicy:
         automated:

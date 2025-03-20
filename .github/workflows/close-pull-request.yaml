@@ -25,17 +25,18 @@ jobs:
       # Checkout the source code in the repository
       - uses: actions/checkout@v4
     
-      - name: Set BRANCH as manifest branch name (ie, pr-25 )
-        run: echo "BRANCH=pr-${{ github.event.inputs.head_pr }}" >> $GITHUB_ENV
+      - name: Set 'branch' as manifest branch name (ie, pr-25 )
+        id: branch
+        run: echo "branch=pr-${{ github.event.inputs.head_pr }}" >> $GITHUB_OUTPUT
   
       - name: Close PR without merge
         if: github.event.inputs.merged == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr close ${{ env.BRANCH }} --delete-branch --comment "Closing PR and deleting branch due to lack of application PR merge"
+        run: gh pr close ${{ steps.branch.outputs.branch }} --delete-branch --comment "Closing PR and deleting branch due to lack of application PR merge"
 
       - name: Close PR with merge
         if: github.event.inputs.merged == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr merge ${{ env.BRANCH }} --auto --delete-branch --squash
+        run: gh pr merge ${{ steps.branch.outputs.branch }} --auto --delete-branch --squash

@@ -17,8 +17,8 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  tls: 
-  - hosts:
-    - example.127-0-0-1.sslip.io
-    # - "*.example.127-0-0-1.sslip.io" # wildcards, probably
-    secretName: ingress-tls
+  # tls: 
+  # - hosts:
+  #   - example.127-0-0-1.sslip.io
+  #   # - "*.example.127-0-0-1.sslip.io" # wildcards, probably
+  #   secretName: ingress-tls

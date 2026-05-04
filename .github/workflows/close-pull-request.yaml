@@ -39,4 +39,6 @@ jobs:
         if: github.event.inputs.merged == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+        # TODO: --auto and --delete-branch don't play well together, look into best solution
+        # maybe repo-level auto delete head branch after merging?
         run: gh pr merge ${{ steps.branch.outputs.branch }} --auto --delete-branch --squash

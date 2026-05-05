@@ -1,5 +1,9 @@
 name: Close Manifest Pull Request
+# meant to be run by the application repo's update-container-image workflow 
+# after an app PR is closed, with or without merge
 
+# If the application PR is merged, the manifest PR will be merged as well, 
+# otherwise it will be closed without merge and the branch deleted.
 on:
   workflow_dispatch:
     inputs:
@@ -23,7 +27,7 @@ jobs:
 
     steps:
       # Checkout the source code in the repository
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
     
       - name: Set 'branch' as manifest branch name (ie, pr-25 )
         id: branch
